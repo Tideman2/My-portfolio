@@ -1,0 +1,15 @@
+:root {
+  --primary-bg: #f9fafb; /* Very light gray/white – used as the page background */
+  --card-bg: #ffffff; /* Pure white – used for card and section backgrounds */
+  --text-color: #111827; /* Dark gray – used for main text for good readability */
+  --accent: #7c3aedfb; /*   – used for buttons, links, highlights */
+  --muted: #9ca3af; /* Subtle gray – used for secondary or low-priority text */
+}
+
+.dark-mode {
+  --primary-bg: #1e293b; /* Dark navy – used as the main page background */
+  --card-bg: #334155; /* Medium-dark blue – used for cards/sections */
+  --text-color: #f1f5f9; /* Off-white – used for main text to stand out on dark bg */
+  --accent: #3b82f6; /* Bright blue – used for buttons, links, or highlights */
+  --muted: #94a3b8; /* Desaturated blue-gray – used for secondary text */
+}
