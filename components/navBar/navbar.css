@@ -47,15 +47,20 @@
   width: 50%;
   margin-left: auto;
 }
-.navbar > a:hover {
-  background-color: var(--accent);
-  color: white;
-  padding: 5px;
-}
 
 .navbar > a {
   text-decoration: none;
   color: var(--accent);
+  padding: 5px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+  transition: background-color 0.5s ease-in;
+}
+
+.navbar > a:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: scale(1.05);
 }
 
 @media (min-width: 608px) and (max-width: 1050px) {
@@ -148,6 +153,16 @@
     box-shadow: 0px 10px 5px black;
     outline: 2px solid #7c3aed;
     outline-offset: 2px;
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none; /* Prevents clicks while hidden */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+  }
+
+  .navbar-display.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
   }
 
   .navbar-display > a {
@@ -161,63 +176,14 @@
     font-weight: 500;
     font-size: 13px;
     color: var(--text-color);
+    padding: 0px;
     transition: background-color 0.2s ease;
   }
 
   .navbar-display > a:hover {
     background-color: var(--accent);
     border-radius: 10%;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0px;
     color: white;
   }
 }
-/* 
-#nav-toggle-btn {
-  display: none;
-}
-
-@media (max-width: 600px) {
-  #nav-toggle-btn {
-    display: block;
-    margin-bottom: 10px;
-    width: 30px;
-    height: 30px;
-    stroke: white;
-  }
-
-  .navbar {
-    display: none;
-  }
-
-  .navbar-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5px;
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    width: 120px;
-    height: 170px;
-  }
-
-  .navbar-display a {
-    text-decoration: none;
-    color: black;
-    width: 100%;
-    height: fit-content;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    transition: background-color 0.2s ease;
-  }
-
-  .navbar-display a:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-} */

@@ -3,7 +3,7 @@ function rehidrateNavbarEvents() {
   if (document.querySelector("#toggle-btn")) {
     document.querySelector("#toggle-btn").addEventListener("click", () => {
       let navBar = document.querySelector(".navbar");
-      navBar.classList.toggle("navbar-display");
+      navBar.classList.toggle("active");
     });
   }
 }
