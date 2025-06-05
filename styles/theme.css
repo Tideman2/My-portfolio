@@ -1,15 +1,15 @@
 :root {
-  --primary-bg: #f9fafb; /* Very light gray/white – used as the page background */
-  --card-bg: #ffffff; /* Pure white – used for card and section backgrounds */
-  --text-color: #111827; /* Dark gray – used for main text for good readability */
-  --accent: #7c3aedfb; /*   – used for buttons, links, highlights */
-  --muted: #9ca3af; /* Subtle gray – used for secondary or low-priority text */
+  --primary-bg: #e5e7eb; /* Soft light gray – main page background */
+  --card-bg: #f3f4f6; /* Slightly off-white – card and section background */
+  --text-color: #0f172a; /* Rich dark blue-gray – primary readable text */
+  --accent: #9333ea; /* Vivid purple – use for buttons, links, and highlights */
+  --muted: #6b7280; /* Cool gray – use for secondary text or subtle labels */
 }
 
 .dark-mode {
-  --primary-bg: #1e293b; /* Dark navy – used as the main page background */
-  --card-bg: #334155; /* Medium-dark blue – used for cards/sections */
-  --text-color: #f1f5f9; /* Off-white – used for main text to stand out on dark bg */
-  --accent: #3b82f6; /* Bright blue – used for buttons, links, or highlights */
-  --muted: #94a3b8; /* Desaturated blue-gray – used for secondary text */
+  --primary-bg: #0f172a; /* Deep blue-black – page background */
+  --card-bg: #1e293b; /* Slightly lighter – card and section backgrounds */
+  --text-color: #f8fafc; /* Near-white – high contrast for readability */
+  --accent: #c084fc; /* Bright lavender – buttons, links, hover highlights */
+  --muted: #64748b; /* Slate gray-blue – secondary text, timestamps, etc. */
 }

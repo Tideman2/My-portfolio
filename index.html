@@ -3,17 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./components/about/about.css" />
+    <link rel="stylesheet" href="./components/intro/intro.css" />
+    <link rel="stylesheet" href="./components/navBar/navbar.css" />
     <link rel="stylesheet" href="./styles/theme.css" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./components/navBar/navbar.css" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <title>Document</title>
   </head>
   <body>
     <header>
       <!-- header contents are loaded dynamically from fragments html files -->
     </header>
-    <main></main>
+    <main>
+      <!-- the body tag contains the heo(intro), skills/technologies and projects  -->
+      <section id="hero-place"></section>
+      <section id="about-place"></section>
+    </main>
     <script type="module" src="./js/index.js"></script>
-    <script src="./components/navBar/getNavComp.js"></script>
+    <script type="module" src="./components/navBar/getNavComp.js"></script>
+    <script type="module" src="./components/intro/intro.js"></script>
+    <script type="module" src="./components/about/about.js"></script>
   </body>
 </html>

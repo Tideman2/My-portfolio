@@ -1,15 +1,36 @@
+*,
 *::before,
 *::after {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Works globally! */
+  font-size: 18px;
 }
 
 body {
   background-color: var(--primary-bg);
+  padding-top: 50px;
 }
 
 header {
   height: fit-content;
   width: 100%;
+  height: fit-content;
   box-sizing: border-box;
+}
+
+main {
+  margin: 30px;
+}
+
+@media (min-width: 608px) {
+  main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

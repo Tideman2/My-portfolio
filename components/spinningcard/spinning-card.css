@@ -1,0 +1,31 @@
+/* The html elements using this class will be dynamically generated */
+
+.card {
+  width: 130px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--card-bg);
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+
+#card-1,
+#card-2 {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  box-shadow: 3px 3px 4px black;
+}
+
+#card-2 {
+  transform: rotateY(180deg);
+  background-color: red;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
