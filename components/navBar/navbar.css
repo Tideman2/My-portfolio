@@ -19,7 +19,7 @@
 #first-cell,
 #second-cell,
 #third-cell {
-  background-color: transparent;
+  background-color: var(--card-bg);
 }
 
 #first-cell {
@@ -87,7 +87,6 @@
 @media (max-width: 607px) {
   #grid {
     grid-template-columns: 1fr 1fr;
-    background-color: var(--card-bg);
   }
 
   .navbar {

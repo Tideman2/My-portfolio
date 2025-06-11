@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/path/to/favicon.ico" />
+    <link rel="stylesheet" href="./styles/admin.css" />
+    <title>Portfolio-admmin</title>
+  </head>
+  <body>
+    <h1>Welcome admin</h1>
+    <section>
+      <form id="projectForm" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Project Title" required />
+        <input type="text" name="stack" placeholder="Tech Stack" required />
+        <input type="text" name="goal" placeholder="Goal" />
+        <input type="text" name="gitUrl" placeholder="GitHub URL" />
+        <input type="text" name="demoUrl" placeholder="Live Demo URL" />
+        <input type="file" name="image" />
+        <button type="submit">Add Project</button>
+      </form>
+    </section>
+
+    <div id="projects_container">
+      <template id="projectTemplate">
+        <div class="projectCard">
+          <h2 class="title"></h2>
+          <p class="stack"></p>
+        </div>
+      </template>
+    </div>
+    <script src="./js/admin.js"></script>
+  </body>
+</html>

@@ -4,8 +4,7 @@
   height: fit-content;
   justify-items: center;
   align-items: center;
-  gap: 20px; /* Slightly more breathing room */
-  padding: 2rem 1rem; /* Padding around the section */
+  gap: 20px;
 }
 
 #hero-image {
@@ -34,8 +33,8 @@
 }
 
 #hero-image img {
-  width: clamp(150px, 40vw, 250px);
-  height: clamp(150px, 40vw, 250px);
+  width: clamp(150px, 40vw, 300px);
+  height: clamp(150px, 40vw, 300px);
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds some visual depth */

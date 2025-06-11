@@ -6,12 +6,11 @@ html {
   display: grid;
   grid-template-columns: 100%;
   justify-items: center;
-  margin-top: 40px;
   height: fit-content;
   gap: 50px;
 }
 
-.about-header {
+.headers {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -19,13 +18,14 @@ html {
   align-items: center;
 }
 
-.about-header h2 {
+.headers h2 {
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--accent);
 }
 
-.about-header > p {
-  font-size: clamp(1rem, 5vw, 1.3rem);
+.headers > p {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: var(--text-color);
 }
 
 .my-img-con {
@@ -37,8 +37,8 @@ html {
 }
 
 .my-img-con img {
-  width: clamp(200px, 40vw, 300px);
-  height: clamp(200px, 40vw, 300px);
+  width: clamp(200px, 40vw, 400px);
+  height: clamp(200px, 40vw, 400px);
   position: relative;
   top: 20px;
   left: 20px;
@@ -56,6 +56,7 @@ html {
   padding: 10px;
   line-height: 1.4;
   text-align: center;
+  color: var(--text-color);
   font-size: clamp(1rem, 3vw, 1.2rem); /* Scales nicely across devices */
 }
 
@@ -67,12 +68,11 @@ html {
     grid-template-rows: fit-content;
     justify-items: center;
     align-items: center;
-    margin-top: 40px;
     height: fit-content;
     gap: 50px;
   }
 
-  .about-header {
+  .headers {
     grid-column: span 2;
   }
 

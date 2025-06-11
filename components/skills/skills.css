@@ -1,0 +1,129 @@
+#skills-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+#skills-sec p {
+  font-size: clamp(1rem, 10vw, 1.1rem);
+  line-height: 1.2;
+}
+
+#skills-sec h4 {
+  padding-top: 20px;
+  font-size: clamp(0.8rem, 8vw, 1.1rem);
+}
+
+#skills-sec ul {
+  line-height: 1.2;
+}
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#tech-space {
+  display: grid;
+  grid-template-columns: 100%;
+  padding: 10px;
+  justify-items: center;
+  width: 100%;
+  gap: 0px;
+  border-radius: 12px; /* smoother, more card-like */
+  background-color: var(--card-bg); /* card background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* smooth, elevated shadow */
+}
+
+#tech-skills {
+  width: 100%;
+}
+
+#tech-skills > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  padding: 10px;
+}
+
+#Professional-spoace {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 12px; /* smoother, more card-like */
+  background-color: var(--card-bg); /* card background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* smooth, elevated shadow */
+}
+
+/* from here downwards is styling for the skill-template.html fragment */
+
+.skills-template-content {
+  width: 100%;
+}
+
+.skills-template-content p {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.tech-and-percentage {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.bar-outer {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-inner {
+  height: 100%;
+  background-color: green;
+  width: 0%; /* Set this via JavaScript or inline */
+  transition: width 0.3s;
+}
+
+/* media */
+@media (min-width: 715px) {
+  #tech-space {
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 10px;
+    justify-items: center;
+    width: 100%;
+    gap: 0px;
+  }
+
+  #tech-skills {
+    display: flex;
+    gap: clamp(10px, 10vw, 20px);
+  }
+}
+
+@media (min-width: 1184px) {
+  #skills {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  #tech-space {
+    width: 70%;
+  }
+
+  #tech-skills > div {
+    width: 250px;
+  }
+}
