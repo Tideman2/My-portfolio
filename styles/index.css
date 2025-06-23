@@ -27,12 +27,13 @@ main {
   margin: 30px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 80px;
 }
 
 @media (min-width: 608px) {
   main {
     width: 80%;
+    gap: 90px;
     padding-top: 20px;
     margin-left: auto;
     margin-right: auto;
