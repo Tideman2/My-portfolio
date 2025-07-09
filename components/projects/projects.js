@@ -20,7 +20,6 @@ let urls = [
 function paginate() {
   let start = (currentPage - 1) * itemsPerPage;
   let end = start + itemsPerPage;
-  console.log(start, end);
   if (currentPage > totalPages) {
     alert("No more projects");
   }
@@ -33,11 +32,9 @@ function paginate() {
 function loadPaginatedData() {
   let paginated = paginate();
   let cardContainer = document.querySelector("#card-box");
-  console.log(paginated, totalPages, itemsPerPage);
   for (let proj of paginated) {
     let clone = cardTemplate.content.cloneNode(true);
     let cloneCard = clone.querySelector(".card");
-    console.log(cloneCard);
     //attach event to card
     cloneCard.addEventListener("click", () => {
       cloneCard.classList.toggle("flipped");
@@ -48,13 +45,11 @@ function loadPaginatedData() {
     if (cardContainer.lastElementChild.clientHeight >= maxCardHeight) {
       maxCardHeight = cardContainer.lastElementChild.clientHeight;
     }
-    console.log(maxCardHeight);
   }
 
   //Equalize cards height after appending all card
   let allCards = cardContainer.querySelectorAll(".card-front");
   allCards.forEach((card) => {
-    console.log(card);
     card.style.height = `${maxCardHeight}px`;
   });
   // rehydrateCardEvent();
@@ -125,7 +120,6 @@ fetchHtmlFrag(fragmentUrl, parentElement, () => {
   let seeMoreBtn = document
     .querySelector("#see-more-btn")
     .querySelector("button");
-  console.log(seeMoreBtn);
   seeMoreBtn.addEventListener("click", () => {
     loadPaginatedData();
     // rehydrateCardEvent();

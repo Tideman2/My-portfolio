@@ -1,5 +1,6 @@
 const projConainer = document.querySelector("#projects_container");
 const template = document.getElementById("projectTemplate");
+let exitBtn = document.getElementById("exit");
 
 function renderProjects() {
   projConainer.innerHTML = ""; // clear old content
@@ -35,15 +36,19 @@ renderProjects();
 // Add project form submission
 document.querySelector("#projectForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  let token = localStorage.getItem("token");
+  console.log(token);
   const formData = new FormData(e.target);
-
   fetch("http://127.0.0.1:5000/api/projects/", {
     method: "POST",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
     body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
-      alert("Project successfully created");
+      console.log(data);
       renderProjects(); // <--- Refresh project list here
       e.target.reset();
     })
@@ -56,9 +61,13 @@ document.querySelector("#projectForm").addEventListener("submit", (e) => {
 // Delete event handler function
 function attachDeleteEvent(elem) {
   elem.addEventListener("click", (e) => {
+    let token = localStorage.getItem("token");
     let id = Number(e.currentTarget.dataset.id);
     fetch(`http://127.0.0.1:5000/api/projects/${id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -68,3 +77,33 @@ function attachDeleteEvent(elem) {
       .catch((err) => console.error(err));
   });
 }
+
+//Route protection logic
+
+async function checkIfAuth() {
+  let token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "adminindex.html"; // redirect to login
+    console.log("No token");
+  }
+
+  let res = await fetch(`http://127.0.0.1:5000/api/auth/verify`, {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
+  if (!res.ok) {
+    window.location.href = "adminindex.html";
+    console.log("unauthorized");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  checkIfAuth();
+});
+
+exitBtn.addEventListener("click", () => {
+  localStorage.removeItem("token");
+  window.location.href = "adminindex.html";
+});

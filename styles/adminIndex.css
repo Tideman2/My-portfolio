@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+body > div {
+  height: fit-content;
+  padding: 20px;
+  width: 40%;
+  background-color: rgba(128, 128, 128, 0.216);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+input {
+  width: 50%;
+  font-size: large;
+  padding: 12px;
+  border: none;
+}
+
+h5 {
+  font-size: xx-large;
+  height: fit-content;
+  width: fit-content;
+  padding: 15px;
+  margin: 0px;
+}
+
+button {
+  font-size: large;
+  padding: 10px;
+}

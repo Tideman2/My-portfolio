@@ -1,0 +1,130 @@
+#contact-section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 40px;
+}
+
+#connect {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#connect h3 {
+  font-size: clamp(1.2rem, 15vw, 1.3rem);
+}
+
+#connect ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#connect li {
+  display: flex;
+  height: fit-content;
+  padding: 12px;
+  gap: 16px;
+  display: flex;
+  background-color: var(--card-bg);
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#connect li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+#connect i {
+  font-size: clamp(1rem, 20vw, 1.2rem);
+}
+.text {
+  width: 100%;
+  padding: 10px;
+  font-size: clamp(1rem, 20vw, 1rem);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  background-color: var(--accent);
+  border-radius: 5%;
+}
+
+fieldset {
+  border: 2px solid var(--accent);
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+fieldset > input {
+  width: 60%;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+fieldset input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+fieldset textarea:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+legend {
+  font-size: clamp(1rem, 20vw, 1.2rem);
+  font-weight: 600;
+}
+
+textarea {
+  height: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+#message-me-btn {
+  width: fit-content;
+  color: white;
+  margin-left: auto;
+}
+
+#notytag-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.valid-message {
+  color: green;
+  font-weight: bold;
+}
+
+@media (min-width: 975px) {
+  #contact-section {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  textarea {
+    height: 100%;
+  }
+}
