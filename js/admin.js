@@ -40,7 +40,7 @@ document.querySelector("#projectForm").addEventListener("submit", (e) => {
   let token = localStorage.getItem("token");
   console.log(token);
   const formData = new FormData(e.target);
-  fetch("http://127.0.0.1:5000/api/projects/", {
+  fetch(`${API_URL}/api/projects/`, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,
@@ -64,7 +64,7 @@ function attachDeleteEvent(elem) {
   elem.addEventListener("click", (e) => {
     let token = localStorage.getItem("token");
     let id = Number(e.currentTarget.dataset.id);
-    fetch(`http://127.0.0.1:5000/api/projects/${id}`, {
+    fetch(`${API_URL}/api/projects/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + token,
@@ -88,7 +88,7 @@ async function checkIfAuth() {
     console.log("No token");
   }
 
-  let res = await fetch(`http://127.0.0.1:5000/api/auth/verify`, {
+  let res = await fetch(`${API_URL}/api/auth/verify`, {
     method: "POST",
     headers: {
       Authorization: "Bearer " + token,

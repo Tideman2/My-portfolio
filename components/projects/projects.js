@@ -1,5 +1,6 @@
 import fetchHtmlFrag from "../../js/fetch-html-frag.js";
 const API_URL = window.APP_CONFIG.getDynamicApiUrl();
+const IMG_URL = window.APP_CONFIG.getImageUploadUrl();
 
 // Instead of running immediately, wrap in:
 document.addEventListener("DOMContentLoaded", function () {
@@ -95,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title,
     } = project;
 
-    clone.querySelector("img").src = `http://localhost:5000/${image}`;
+    clone.querySelector("img").src = `${IMG_URL}/${image}`;
     clone.querySelector(".title").innerHTML = title;
     clone.querySelector(".about-project").innerHTML = goal;
     clone.querySelector(".view-code").href = code;
