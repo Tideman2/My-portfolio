@@ -1,5 +1,6 @@
 let adminForm = document.querySelector("#admin-form");
 let notifyElem = document.querySelector("#notify");
+const API_URL = window.APP_CONFIG.getDynamicApiUrl();
 console.log(adminForm);
 
 //function to validate password
@@ -43,7 +44,7 @@ adminForm.addEventListener("submit", async (e) => {
 });
 
 async function login(bodyData) {
-  let response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+  let response = await fetch(`${API_URL}/api/auth/login`, {
     method: "POST", // or "GET", "DELETE", etc.
     headers: {
       "Content-Type": "application/json",

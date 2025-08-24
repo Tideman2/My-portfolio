@@ -1,10 +1,11 @@
 const projConainer = document.querySelector("#projects_container");
 const template = document.getElementById("projectTemplate");
+const API_URL = window.APP_CONFIG.getDynamicApiUrl();
 let exitBtn = document.getElementById("exit");
 
 function renderProjects() {
   projConainer.innerHTML = ""; // clear old content
-  fetch("http://127.0.0.1:5000/api/projects/")
+  fetch(`${API_URL}/api/projects/`)
     .then((res) => res.json())
     .then((data) => {
       if (data.length < 1) {

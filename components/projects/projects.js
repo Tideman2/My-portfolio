@@ -94,7 +94,7 @@ function populateCardClone(project, clone) {
   let stckContainer = clone.querySelector(".stack");
 
   // Split stack into words
-  stack.split(" ").forEach((text) => {
+  stack.split(",").forEach((text) => {
     let liElem = document.createElement("li");
     liElem.innerHTML = text;
     stckContainer.append(liElem);
