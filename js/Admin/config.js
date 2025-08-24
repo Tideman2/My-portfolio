@@ -1,12 +1,9 @@
 window.APP_CONFIG = {
-  API_URL: "https://my-portfolio-backend-1rwp.onrender.com",
+  API_URL: "http://localhost:5000",
 
   getDynamicApiUrl() {
-    if (
-      window.location.hostname === "localhost" ||
-      window.location.hostname === "127.0.0.1"
-    ) {
-      return "http://localhost:5000";
+    if (window.location.hostname !== "localhost") {
+      return "https://my-portfolio-backend-1rwp.onrender.com";
     }
     return this.API_URL;
   },
