@@ -87,9 +87,5 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", (e) => handleBtnClick({ e }));
   }
 
-  fetchHtmlFrag(
-    "../../components/contact/contact.html",
-    "#contact-place",
-    load
-  );
+  fetchHtmlFrag("components/contact/contact.html", "#contact-place", load);
 });

@@ -19,9 +19,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  fetchHtmlFrag(
-    "../../components/intro/intro.html",
-    "#hero-place",
-    runTypedEffect
-  );
+  fetchHtmlFrag("components/intro/intro.html", "#hero-place", runTypedEffect);
 });

@@ -12,9 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  fetchHtmlFrag(
-    "../../components/navBar/nav.html",
-    "header",
-    rehidrateNavbarEvents
-  );
+  fetchHtmlFrag("components/navBar/nav.html", "header", rehidrateNavbarEvents);
 });
