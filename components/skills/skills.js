@@ -13,7 +13,7 @@ async function fetchSkillTemplate() {
     // Return the actual <template> element
     return temp.querySelector("template");
   } catch (err) {
-    console.log("while fetching Skills template", err);
+    console.error("while fetching Skills template", err);
   }
 }
 

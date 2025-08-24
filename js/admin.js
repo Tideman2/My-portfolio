@@ -28,7 +28,7 @@ function renderProjects() {
         projConainer.appendChild(div);
       }
     })
-    .catch((err) => console.log("Error occurred:", err));
+    .catch((err) => console.error("Error occurred:", err));
 }
 
 // Call renderProjects on page load
@@ -38,7 +38,6 @@ renderProjects();
 document.querySelector("#projectForm").addEventListener("submit", (e) => {
   e.preventDefault();
   let token = localStorage.getItem("token");
-  console.log(token);
   const formData = new FormData(e.target);
   fetch(`${API_URL}/api/projects/`, {
     method: "POST",
@@ -49,7 +48,6 @@ document.querySelector("#projectForm").addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       renderProjects(); // <--- Refresh project list here
       e.target.reset();
     })
@@ -72,7 +70,6 @@ function attachDeleteEvent(elem) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         renderProjects(); // <--- Refresh project list after delete
       })
       .catch((err) => console.error(err));
@@ -84,8 +81,7 @@ function attachDeleteEvent(elem) {
 async function checkIfAuth() {
   let token = localStorage.getItem("token");
   if (!token) {
-    window.location.href = "adminindex.html"; // redirect to login
-    console.log("No token");
+    window.location.href = "loginPage.html"; // redirect to login
   }
 
   let res = await fetch(`${API_URL}/api/auth/verify`, {
@@ -95,8 +91,7 @@ async function checkIfAuth() {
     },
   });
   if (!res.ok) {
-    window.location.href = "adminindex.html";
-    console.log("unauthorized");
+    window.location.href = "loginPage.html";
   }
 }
 
@@ -106,5 +101,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 exitBtn.addEventListener("click", () => {
   localStorage.removeItem("token");
-  window.location.href = "adminindex.html";
+  window.location.href = "loginPage.html";
 });

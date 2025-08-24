@@ -1,7 +1,6 @@
 import fetchHtmlFrag from "../../js/fetch-html-frag.js";
 const API_URL = window.APP_CONFIG.getDynamicApiUrl();
 const IMG_URL = window.APP_CONFIG.getImageUploadUrl();
-
 // Instead of running immediately, wrap in:
 document.addEventListener("DOMContentLoaded", function () {
   let maxCardHeight = 0;
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
       //attach event to card
       cloneCard.addEventListener("click", () => {
         cloneCard.classList.toggle("flipped");
-        console.log("clicked on card");
       });
       let populatedClone = populateCardClone(proj, clone);
       cardContainer.appendChild(populatedClone);
@@ -62,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
   //function added click functionality to all cards to trigger the animation
   function rehydrateCardEvent() {
     document.querySelectorAll(".card").forEach((card) => {
-      console.log("Got the cards");
       card.addEventListener("click", () => {
         card.classList.toggle("flipped");
       });

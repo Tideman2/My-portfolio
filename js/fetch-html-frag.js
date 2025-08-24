@@ -12,7 +12,6 @@ export default function fetchHtmlFrag(
   fetch(fragmentUrl)
     .then((res) => res.text())
     .then((html) => {
-      console.log("Fragment loaded from", fragmentUrl);
       const temp = document.createElement("div");
       const parent = document.querySelector(parentOfElement);
 

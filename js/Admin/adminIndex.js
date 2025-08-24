@@ -11,7 +11,6 @@ function validatePassword(input) {
 loginBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   let formData = new FormData(adminForm);
-  console.log(formData);
   let { password, username } = Object.fromEntries(formData.entries());
 
   if (!validatePassword(password)) {
@@ -31,7 +30,6 @@ loginBtn.addEventListener("click", async (e) => {
   try {
     let token = await login(dataBody);
     if (token) {
-      console.log(token);
       localStorage.setItem("token", token);
       window.location.href = "admin.html";
     } else {

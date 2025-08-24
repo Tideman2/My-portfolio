@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateForEmpty(input) {
     if (!input) return false;
-    console.log(input.length > 0);
     return input.trim().length > 0;
   }
 
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
       NotifyLoading.stopLoadingEffect();
       const data = await response.json();
 
-      console.log("Message sent successfully:", data);
       notifyUser("Message sent successfully", "valid-message", 3000);
       return data;
     } catch (err) {
