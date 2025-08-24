@@ -1,6 +1,6 @@
 window.APP_CONFIG = {
   API_URL: "http://localhost:5000",
-  IMG_URL: "https://tideman2.github.io/My-portfolio/static/project_images",
+  IMG_PATH: "/static/project_images",
 
   getDynamicApiUrl() {
     if (window.location.hostname !== "localhost") {
@@ -10,7 +10,7 @@ window.APP_CONFIG = {
   },
 
   getImageUploadUrl() {
-    return this.IMG_URL;
+    return this.getDynamicApiUrl + this.IMG_PATH;
   },
 };
 
