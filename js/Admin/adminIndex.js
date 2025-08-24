@@ -1,16 +1,17 @@
 let adminForm = document.querySelector("#admin-form");
 let notifyElem = document.querySelector("#notify");
+let loginBtn = document.querySelector("#submit-btn");
 const API_URL = window.APP_CONFIG.getDynamicApiUrl();
-console.log(adminForm);
 
 //function to validate password
 function validatePassword(input) {
   return input.length > 7;
 }
 
-adminForm.addEventListener("submit", async (e) => {
+loginBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  let formData = new FormData(e.target);
+  let formData = new FormData(adminForm);
+  console.log(formData);
   let { password, username } = Object.fromEntries(formData.entries());
 
   if (!validatePassword(password)) {
