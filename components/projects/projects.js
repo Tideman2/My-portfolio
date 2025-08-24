@@ -1,4 +1,5 @@
 import fetchHtmlFrag from "../../js/fetch-html-frag.js";
+const API_URL = window.APP_CONFIG.getDynamicApiUrl();
 
 let maxCardHeight = 0;
 
@@ -12,7 +13,7 @@ let fragmentUrl = "../../components/projects/projects.html";
 let parentElement = "#projects-place";
 //urls for porjcets data from the backend and url for Cards template
 let urls = [
-  "http://127.0.0.1:5000/api/projects/",
+  `${API_URL}/api/projects/`,
   "../../components/projects/project-template.html",
 ];
 
@@ -124,4 +125,9 @@ fetchHtmlFrag(fragmentUrl, parentElement, () => {
     loadPaginatedData();
     // rehydrateCardEvent();
   });
+});
+
+// Instead of running immediately, wrap in:
+document.addEventListener("DOMContentLoaded", function () {
+  // Your code here
 });
