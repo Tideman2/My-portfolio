@@ -6,7 +6,7 @@ import currentTechSkills from "./skills-utility/tech-skills.js";
 //function to fetch html template element as a fragment
 async function fetchSkillTemplate() {
   try {
-    const res = await fetch("../../components/skills/skill-template.html");
+    const res = await fetch("components/skills/skill-template.html");
     const html = await res.text();
     const temp = document.createElement("div");
     temp.innerHTML = html;
@@ -83,7 +83,7 @@ function getHtmlElements() {
 let skillTemplate = await fetchSkillTemplate();
 
 fetchHtmlFrag(
-  "../../components/skills/skills.html",
+  "components/skills/skills.html",
   "#skills-place",
   getHtmlElements
 );

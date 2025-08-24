@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let totalPages;
   let cardTemplate;
 
-  let fragmentUrl = "../../components/projects/projects.html";
+  let fragmentUrl = "components/projects/projects.html";
   let parentElement = "#projects-place";
   //urls for porjcets data from the backend and url for Cards template
   let urls = [
@@ -124,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // rehydrateCardEvent();
   }
 
-  //Using the null as last  arguement because the fetchHtmlFrag expects rehydration function as it's last arguement
   fetchHtmlFrag(fragmentUrl, parentElement, () => {
     loadProjects();
     let seeMoreBtn = document
