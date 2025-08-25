@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title,
     } = project;
 
-    clone.querySelector("img").src = `${IMG_URL}/${image}`;
+    clone.querySelector("img").src = `${image}`;
     clone.querySelector(".title").innerHTML = title;
     clone.querySelector(".about-project").innerHTML = goal;
     clone.querySelector(".view-code").href = code;
