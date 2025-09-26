@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const [dataRes, templateRes] = await Promise.all(
       urls.map((url) => fetch(url))
     );
+    if (!dataRes.ok || !templateRes.ok) throw new Error("Failed to fetch");
     const projectData = await dataRes.json();
     const template = await templateRes.text();
     let temp = document.createElement("div");
@@ -122,14 +123,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // rehydrateCardEvent();
   }
 
-  fetchHtmlFrag(fragmentUrl, parentElement, () => {
-    loadProjects();
-    let seeMoreBtn = document
-      .querySelector("#see-more-btn")
-      .querySelector("button");
-    seeMoreBtn.addEventListener("click", () => {
-      loadPaginatedData();
-      // rehydrateCardEvent();
-    });
+  fetchHtmlFrag(fragmentUrl, parentElement, async () => {
+    try {
+      await loadProjects();
+      let seeMoreBtn = document
+        .querySelector("#see-more-btn")
+        .querySelector("button");
+      seeMoreBtn.addEventListener("click", () => {
+        loadPaginatedData();
+        // rehydrateCardEvent();
+      });
+    } catch (error) {
+      let parentElem = document.querySelector(parentElement);
+      parentElem.innerHTML = "Failed to load projects. Please try again later";
+      parentElem.style.color = "red";
+      parentElem.style.textAlign = "center";
+      console.error("Error loading projects:", error);
+    }
   });
 });

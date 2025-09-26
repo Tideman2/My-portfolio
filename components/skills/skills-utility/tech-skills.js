@@ -50,7 +50,7 @@ let currentTechSkills = [
     why: "Backend for my portfolio and chat app. Built REST APIs, modularized with Blueprints, set up relationships between tables, queried efficiently, and understood ORM patterns.",
   },
   {
-    tech: "Databases (MySQL/PostgreSQL)",
+    tech: "MySQL/PostgreSQL",
     percentageLearnt: 55,
     why: "Used MySQL Workbench locally during development and PostgreSQL on Render for hosting. This taught me about environment-specific DB configs and portability of SQLAlchemy models.",
   },
