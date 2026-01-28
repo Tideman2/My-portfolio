@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let fragmentUrl = "components/projects/projects.html";
   let parentElement = "#projects-place";
+
   //urls for porjcets data from the backend and url for Cards template
   let urls = [
     `${API_URL}/api/projects/`,
@@ -35,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadPaginatedData() {
     let paginated = paginate();
     let cardContainer = document.querySelector("#card-box");
-    cardContainer.innerHTML = "Loading...";
     for (let proj of paginated) {
       let clone = cardTemplate.content.cloneNode(true);
       let cloneCard = clone.querySelector(".card");
@@ -126,7 +126,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchHtmlFrag(fragmentUrl, parentElement, async () => {
     try {
+      let parentElem = document.querySelector(parentElement);
+      parentElem.innerHTML = "<p id='loading'>Loading projects...</p>";
       await loadProjects();
+      let loading = document.querySelector("#loading");
+      if (loading) loading.remove();
       let seeMoreBtn = document
         .querySelector("#see-more-btn")
         .querySelector("button");
