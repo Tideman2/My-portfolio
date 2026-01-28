@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadPaginatedData() {
     let paginated = paginate();
     let cardContainer = document.querySelector("#card-box");
+    cardContainer.innerHTML = "Loading...";
     for (let proj of paginated) {
       let clone = cardTemplate.content.cloneNode(true);
       let cloneCard = clone.querySelector(".card");
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //  and organize them into a object with project and template
   let resultOfPromises = async () => {
     const [dataRes, templateRes] = await Promise.all(
-      urls.map((url) => fetch(url))
+      urls.map((url) => fetch(url)),
     );
     if (!dataRes.ok || !templateRes.ok) throw new Error("Failed to fetch");
     const projectData = await dataRes.json();
