@@ -20,6 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
     "components/projects/project-template.html",
   ];
 
+  function showLoading() {
+    const parent = document.querySelector(parentElement);
+    if (!parent.querySelector("#loading")) {
+      parent.insertAdjacentHTML(
+        "afterbegin",
+        "<p id='loading'>Loading projects...</p>",
+      );
+    }
+  }
+
+  function hideLoading() {
+    document.querySelector("#loading")?.remove();
+  }
+
   // function to calculate pagination start and end, also return a slice of it
   function paginate() {
     let start = (currentPage - 1) * itemsPerPage;
@@ -126,9 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fetchHtmlFrag(fragmentUrl, parentElement, async () => {
     try {
-      let parentElem = document.querySelector(parentElement);
-      parentElem.innerHTML = "<p id='loading'>Loading projects...</p>";
+      showLoading();
       await loadProjects();
+      hideLoading();
       let loading = document.querySelector("#loading");
       if (loading) loading.remove();
       let seeMoreBtn = document
@@ -139,8 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // rehydrateCardEvent();
       });
     } catch (error) {
-      let loading = document.querySelector("#loading");
-      if (loading) loading.remove();
+      hideLoading();
       let parentElem = document.querySelector(parentElement);
       parentElem.innerHTML = "Failed to load projects. Please try again later";
       parentElem.style.color = "red";
