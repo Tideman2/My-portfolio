@@ -139,6 +139,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // rehydrateCardEvent();
       });
     } catch (error) {
+      let loading = document.querySelector("#loading");
+      if (loading) loading.remove();
       let parentElem = document.querySelector(parentElement);
       parentElem.innerHTML = "Failed to load projects. Please try again later";
       parentElem.style.color = "red";
