@@ -1,12 +1,14 @@
 window.APP_CONFIG = {
-  API_URL: "http://localhost:8000",
+  API_URL: "http://localhost:5001",
+  DEPLOYED_API_URL: "https://my-portfolio-backend-1rwp.onrender.com",
 
   getDynamicApiUrl() {
     const hostname = window.location.hostname;
-    if (hostname !== "localhost" && hostname !== "127.0.0.1") {
-      return "https://my-portfolio-backend-1rwp.onrender.com";
-    }
-    return this.API_URL;
+    const base =
+      hostname !== "localhost" && hostname !== "127.0.0.1"
+        ? this.DEPLOYED_API_URL
+        : this.API_URL;
+    return String(base).replace(/\/+$/, "");
   },
 
   getImageUploadUrl() {
