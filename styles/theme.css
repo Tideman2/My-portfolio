@@ -1,15 +1,101 @@
 :root {
-  --primary-bg: #e5e7eb; /* Soft light gray – main page background */
-  --card-bg: #f3f4f6; /* Slightly off-white – card and section background */
-  --text-color: #0f172a; /* Rich dark blue-gray – primary readable text */
-  --accent: #9333ea; /* Vivid purple – use for buttons, links, and highlights */
-  --muted: #6b7280; /* Cool gray – use for secondary text or subtle labels */
+  color-scheme: light;
+
+  /* Palette */
+  --bg: #e5e7eb;
+  --surface: #f3f4f6;
+  --surface-raised: #ffffff;
+  --text: #0f172a;
+  --muted: #5b6472;
+  --accent: #9333ea;
+  --accent-strong: #7e22ce;
+  --accent-soft: #f3e8ff;
+  --border: #d1d5db;
+  --focus: #7c3aed;
+  --success: #15803d;
+  --error: #b91c1c;
+  --glow: rgba(147, 51, 234, 0.28);
+
+  /* Backward-compatible aliases used by the existing sections and admin pages */
+  --primary-bg: var(--bg);
+  --card-bg: var(--surface);
+  --text-color: var(--text);
+
+  /* Typography */
+  --font-heading: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Layout */
+  --content-max: 1200px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --section-space: clamp(4rem, 9vw, 7rem);
+  --header-height: 5rem;
+  --measure: 65ch;
+
+  /* Shape */
+  --radius-card: 14px;
+  --radius-button: 10px;
+  --radius-pill: 999px;
+
+  /* Spacing rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 40px var(--glow);
+  --transition-fast: 150ms ease-out;
+  --transition-base: 220ms ease-out;
+  --transition-slow: 300ms ease-out;
+
+  /* Icons */
+  --icon-sm: 1rem;
+  --icon-md: 1.25rem;
+  --icon-lg: 1.5rem;
 }
 
+[data-theme="dark"],
 .dark-mode {
-  --primary-bg: #0f172a; /* Deep blue-black – page background */
-  --card-bg: #1e293b; /* Slightly lighter – card and section backgrounds */
-  --text-color: #f8fafc; /* Near-white – high contrast for readability */
-  --accent: #c084fc; /* Bright lavender – buttons, links, hover highlights */
-  --muted: #64748b; /* Slate gray-blue – secondary text, timestamps, etc. */
+  color-scheme: dark;
+
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-raised: #243247;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #c084fc;
+  --accent-strong: #d8b4fe;
+  --accent-soft: rgba(192, 132, 252, 0.14);
+  --border: #334155;
+  --focus: #c084fc;
+  --success: #4ade80;
+  --error: #fca5a5;
+  --glow: rgba(192, 132, 252, 0.24);
+
+  --primary-bg: var(--bg);
+  --card-bg: var(--surface);
+  --text-color: var(--text);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+  }
 }
