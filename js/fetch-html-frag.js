@@ -1,33 +1,47 @@
-// Utility function to fetch and inject an HTML fragment into a parent element
+// Utility function to fetch and inject an HTML fragment into a parent element.
 // Params:
 // - fragmentUrl: path to the HTML file
 // - parentOfElement: selector string for the parent container (e.g., "header")
 // - eventRehydration: optional callback function to rebind JS events after DOM insertion
+// - options: injectable fetch/document for tests
 
-export default function fetchHtmlFrag(
+export default async function fetchHtmlFrag(
   fragmentUrl,
   parentOfElement,
-  eventRehydration
+  eventRehydration,
+  { fetchImpl = globalThis.fetch, documentRef = globalThis.document } = {}
 ) {
-  fetch(fragmentUrl)
-    .then((res) => res.text())
-    .then((html) => {
-      const temp = document.createElement("div");
-      const parent = document.querySelector(parentOfElement);
+  try {
+    const parent = documentRef?.querySelector?.(parentOfElement);
+    if (!parent) {
+      console.error(`Parent element "${parentOfElement}" not found.`);
+      return false;
+    }
 
-      if (!parent) {
-        console.error(`Parent element "${parentOfElement}" not found.`);
-        return;
-      }
+    const response = await fetchImpl(fragmentUrl);
+    if (!response?.ok) {
+      console.error(
+        `Failed to fetch ${fragmentUrl}: ${response?.status ?? "unknown status"}`
+      );
+      return false;
+    }
 
-      temp.innerHTML = html;
-      parent.append(temp.firstChild);
+    const html = await response.text();
+    const temp = documentRef.createElement("div");
+    temp.innerHTML = html;
+    const child = temp.firstElementChild;
+    if (!child) {
+      console.error(`Fragment ${fragmentUrl} did not contain an element.`);
+      return false;
+    }
 
-      if (typeof eventRehydration === "function") {
-        eventRehydration();
-      }
-    })
-    .catch((error) => {
-      console.error(`Failed to fetch ${fragmentUrl}:`, error);
-    });
+    parent.append(child);
+    if (typeof eventRehydration === "function") {
+      eventRehydration();
+    }
+    return true;
+  } catch (error) {
+    console.error(`Failed to fetch ${fragmentUrl}:`, error);
+    return false;
+  }
 }

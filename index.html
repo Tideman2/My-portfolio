@@ -3,34 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isaac Mark — Web Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Isaac Mark, a self-taught frontend developer building responsive, accessible web apps with HTML, CSS, JavaScript, React, and Python."
+    />
+    <meta name="theme-color" content="#9333ea" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tideman2.github.io/My-portfolio/" />
+    <meta property="og:title" content="Isaac Mark — Web Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Isaac Mark, a self-taught frontend developer building responsive, accessible web apps."
+    />
+    <meta
+      property="og:image"
+      content="https://tideman2.github.io/My-portfolio/assets/retroDev.png"
+    />
+    <meta property="og:image:alt" content="Retro developer illustration" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Isaac Mark — Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Isaac Mark, a self-taught frontend developer building responsive, accessible web apps."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tideman2.github.io/My-portfolio/assets/retroDev.png"
+    />
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./components/contact/contact.css" />
-    <link rel="stylesheet" href="./components/projects/projects.css" />
-    <link rel="stylesheet" href="./components/skills/skills.css" />
-    <link rel="stylesheet" href="./components/about/about.css" />
-    <link rel="stylesheet" href="./components/intro/intro.css" />
-    <link rel="stylesheet" href="./components/navBar/navbar.css" />
+
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("myportfolio-theme");
+          var system = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+          var theme =
+            stored === "light" || stored === "dark" ? stored : system;
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+          document.documentElement.style.colorScheme = "light";
+        }
+      })();
+    </script>
+
     <link rel="stylesheet" href="./styles/theme.css" />
+    <link rel="stylesheet" href="./components/navBar/navbar.css" />
+    <link rel="stylesheet" href="./components/intro/intro.css" />
+    <link rel="stylesheet" href="./components/about/about.css" />
+    <link rel="stylesheet" href="./components/skills/skills.css" />
+    <link rel="stylesheet" href="./components/projects/projects.css" />
+    <link rel="stylesheet" href="./components/contact/contact.css" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="config.js"></script>
-    <title>Document</title>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
       <!-- header contents are loaded dynamically from fragments html files -->
     </header>
-    <main>
-      <!-- the body tag contains the heo(intro), skills/technologies and projects  -->
+    <main id="main">
+      <!-- the body tag contains the hero(intro), skills/technologies and projects -->
       <section id="hero-place"></section>
       <section id="about-place"></section>
       <section id="skills-place"></section>
       <section id="projects-place"></section>
       <section id="contact-place"></section>
     </main>
+    <footer id="footer-place"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"
+      defer
+    ></script>
     <script type="module" src="./js/index.js"></script>
     <script type="module" src="./components/navBar/getNavComp.js"></script>
     <script type="module" src="./components/intro/intro.js"></script>
@@ -38,5 +100,6 @@
     <script type="module" src="./components/skills/skills.js"></script>
     <script type="module" src="./components/projects/projects.js"></script>
     <script type="module" src="./components/contact/contact.js"></script>
+    <script type="module" src="./components/footer/footer.js"></script>
   </body>
 </html>
