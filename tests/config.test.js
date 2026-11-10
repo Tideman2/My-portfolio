@@ -20,7 +20,7 @@ test("resolveApiBase uses the deployed API elsewhere", () => {
   );
 });
 
-test("classic config.js stays compatible with the admin pages", () => {
+test("classic config.js stays compatible with the shell", () => {
   const source = readFileSync(new URL("../config.js", import.meta.url), "utf8");
   assert.match(source, /5001/);
   assert.match(source, /my-portfolio-backend-1rwp/);
