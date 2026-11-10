@@ -8,11 +8,16 @@ const FIELD_DEFINITIONS = [
   { name: "name", label: "Name", errorId: "name-error", type: "text" },
   { name: "email", label: "Email", errorId: "email-error", type: "email" },
   { name: "subject", label: "Subject", errorId: "subject-error", type: "text" },
-  { name: "message", label: "Message", errorId: "message-error", type: "textarea" },
+  {
+    name: "message",
+    label: "Message",
+    errorId: "message-error",
+    type: "textarea",
+  },
 ];
 
 const FIELD_LABELS = Object.fromEntries(
-  FIELD_DEFINITIONS.map((field) => [field.name, field.label])
+  FIELD_DEFINITIONS.map((field) => [field.name, field.label]),
 );
 
 function faIconFor(name) {
@@ -30,14 +35,18 @@ function renderSocials(socials) {
   if (!container || !list) return;
 
   list.replaceChildren();
-  const source = Array.isArray(socials) && socials.length ? socials : fallbackContent.socials;
+  const source =
+    Array.isArray(socials) && socials.length
+      ? socials
+      : fallbackContent.socials;
   const items = Array.isArray(source) ? source : [];
 
   for (const social of items) {
     const url = String(social?.url ?? "").trim();
     if (!url) continue;
 
-    const label = String(social?.platform_name ?? "Contact").trim() || "Contact";
+    const label =
+      String(social?.platform_name ?? "Contact").trim() || "Contact";
     const item = document.createElement("li");
     const anchor = document.createElement("a");
     anchor.href = url;
@@ -52,6 +61,7 @@ function renderSocials(socials) {
     icon.setAttribute("aria-hidden", "true");
     anchor.append(icon);
     item.append(anchor);
+    item.style.width = "fit-content";
     list.append(item);
   }
 }
@@ -187,7 +197,10 @@ async function sendMessage(values) {
     return true;
   } catch {
     setSubmitButtonState(submitButton, false);
-    setContactStatus("We couldn’t confirm the message was sent — wait a moment before retrying.", "error");
+    setContactStatus(
+      "We couldn’t confirm the message was sent — wait a moment before retrying.",
+      "error",
+    );
     return false;
   }
 }
@@ -229,7 +242,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const loaded = await fetchHtmlFrag(
     "components/contact/contact.html",
     "#contact-place",
-    null
+    null,
   );
 
   if (!loaded) return;
