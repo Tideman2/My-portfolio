@@ -1,44 +1,44 @@
-<section class="hero" id="home">
-  <div id="hero-image">
-    <img src="assets/retroDev.png" alt="pic-of-coder" />
-  </div>
-  <div id="hero-texts">
-    <h3>Hi, I'm Isaac Mark — Web dev</h3>
-    <p id="typed-words">
+<section class="hero" id="home" aria-labelledby="hero-name">
+  <div class="hero-copy">
+    <p class="eyebrow">// 01 — hello</p>
+    <h1 id="hero-name">Isaac Mark</h1>
+    <p class="hero-role">Web Developer</p>
+    <p id="hero-tagline">
       I turn logic into experience — one line of code at a time.
     </p>
-    <div id="cta-box">
-      <button class="cta"><a href="#projects-place">view my work</a></button>
-      <button class="cta"><a href="#contact-place">contact</a></button>
+    <p id="hero-bio">
+      Self-taught frontend developer building responsive, accessible web apps
+      with HTML, CSS, JavaScript, React, and Python.
+    </p>
+    <div id="hero-actions" class="hero-actions">
+      <a class="button button-primary" href="#projects-place">View my work</a>
+      <a class="button button-ghost" href="#contact-place">Contact me</a>
     </div>
-    <div class="social-links">
-      <!-- LinkedIn -->
-      <a
-        href="https://www.linkedin.com/in/isaac-oghenekaro-939a742a7/"
-        target="_blank"
-        aria-label="LinkedIn"
-      >
-        <i class="fab fa-linkedin"></i>
-      </a>
+    <div
+      id="hero-socials"
+      class="social-links"
+      aria-label="Social links"
+    ></div>
+    <noscript>
+      <p class="hero-noscript">
+        Isaac Mark — Web Developer. I turn logic into experience — one line of
+        code at a time.
+      </p>
+    </noscript>
+  </div>
 
-      <!-- GitHub -->
-      <a href="https://github.com/Tideman2" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <!-- WhatsApp -->
-      <a
-        href="https://wa.me/2347078768665"
-        target="_blank"
-        aria-label="WhatsApp"
-      >
-        <i class="fab fa-whatsapp"></i>
-      </a>
-
-      <!-- Gmail -->
-      <a href="mailto:isaacmark83@gmail.com" target="_blank" aria-label="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
+  <div class="hero-visual">
+    <div class="hero-portrait-frame">
+      <img
+        id="hero-portrait"
+        src="assets/retroDev.png"
+        alt="Illustration of Isaac Mark as a retro developer"
+        width="480"
+        height="480"
+        fetchpriority="high"
+      />
+      <span class="hero-corner hero-corner-tl" aria-hidden="true"></span>
+      <span class="hero-corner hero-corner-br" aria-hidden="true"></span>
     </div>
   </div>
 </section>
