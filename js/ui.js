@@ -69,6 +69,10 @@ export function paginate(items, page, perPage = PROJECTS_PER_PAGE) {
   };
 }
 
+export function needsReadMore(goalText, limit = 150) {
+  return String(goalText ?? "").trim().length > limit;
+}
+
 export function splitBio(bio) {
   return String(bio ?? "")
     .split(/\n\s*\n/)

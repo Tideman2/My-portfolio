@@ -38,11 +38,6 @@ function renderProfile(profile) {
     shortBio(profile?.bio) || shortBio(fallbackContent.profile.bio);
   setText("#hero-name", name);
   setText("#hero-bio", bio);
-
-  const portrait = document.querySelector("#hero-portrait");
-  if (portrait) {
-    portrait.alt = `Illustration of ${name} as a retro developer`;
-  }
 }
 
 function renderSocials(socials) {

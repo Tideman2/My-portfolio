@@ -1,6 +1,6 @@
 import fetchHtmlFrag from "../../js/fetch-html-frag.js";
 import { getProjectsGrouped, getProjects } from "../../js/api.js";
-import { formatStack, paginate, PROJECTS_PER_PAGE } from "../../js/ui.js";
+import { formatStack, paginate, PROJECTS_PER_PAGE, needsReadMore } from "../../js/ui.js";
 
 const SKELETON_COUNT = 3;
 
@@ -174,15 +174,11 @@ function createCard(project, group) {
   goalElement.hidden = !hasGoal;
 
   if (readMore) {
-    readMore.hidden = !hasGoal;
+    readMore.hidden = !hasGoal || !needsReadMore(goalText);
     readMore.addEventListener("click", () => {
       const expanded = goalElement.classList.toggle("expanded");
       readMore.textContent = expanded ? "Show less" : "Read more";
-      readMore.hidden = !hasGoal || (!expanded && goalElement.scrollHeight <= goalElement.clientHeight + 1);
     });
-    if (hasGoal && goalElement.scrollHeight <= goalElement.clientHeight) {
-      readMore.hidden = true;
-    }
   }
 
   const stacks = formatStack(project?.stack);

@@ -13,6 +13,7 @@ import {
   initials,
   prefersReducedMotion,
   revealOnScroll,
+  needsReadMore,
 } from "../js/ui.js";
 
 test("proficiencyLabel describes the 1-5 level", () => {
@@ -118,4 +119,12 @@ test("revealOnScroll shows everything when motion is reduced", () => {
   const element = { classList: { add: (name) => classes.add(name) } };
   revealOnScroll([element], { reducedMotion: true });
   assert.equal(classes.has("is-visible"), true);
+});
+
+test("needsReadMore flags goals longer than the clamped card", () => {
+  assert.equal(needsReadMore("Short goal."), false);
+  assert.equal(needsReadMore("x".repeat(150)), false);
+  assert.equal(needsReadMore("x".repeat(151)), true);
+  assert.equal(needsReadMore("  "), false);
+  assert.equal(needsReadMore(null), false);
 });

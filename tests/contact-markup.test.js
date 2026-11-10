@@ -10,6 +10,10 @@ const utils = readFileSync(
   new URL("../components/contact/utils.js", import.meta.url),
   "utf8"
 );
+const contactCss = readFileSync(
+  new URL("../components/contact/contact.css", import.meta.url),
+  "utf8"
+);
 
 test("contact markup has the required form and status regions", () => {
   for (const id of [
@@ -37,6 +41,18 @@ test("contact markup has an accessible error summary and status region", () => {
 test("contact markup removes placeholders and hardcoded social links", () => {
   assert.doesNotMatch(contact, /placeholder=/);
   assert.doesNotMatch(contact, /linkedin\.com|github\.com|whatsapp|@gmail/);
+});
+
+test("contact styles target the form that actually exists", () => {
+  assert.match(contactCss, /#contact-form\s+fieldset\s*\{/);
+  assert.doesNotMatch(contactCss, /#message-me-form/);
+});
+
+test("contact layout stays one column without the links block", () => {
+  assert.doesNotMatch(
+    contactCss,
+    /minmax\(0,\s*0\.9fr\)\s+minmax\(0,\s*1\.1fr\)/
+  );
 });
 
 test("contact utils provide status and submit button helpers", () => {

@@ -75,7 +75,7 @@
   min-width: 0;
 }
 
-#message-me-form fieldset {
+#contact-form fieldset {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -215,16 +215,8 @@
 
 @media (min-width: 975px) {
   #contact-section {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
-  }
-
-  #contact-links {
-    grid-column: 1;
-  }
-
-  #message-me-form {
-    grid-column: 2;
   }
 }
 
@@ -232,7 +224,7 @@
   #contact-section,
   #contact-links,
   .contact-links,
-  #message-me-form,
+  #contact-form,
   #message-me-btn {
     transition: none;
   }

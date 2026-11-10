@@ -10,6 +10,10 @@ const footer = readFileSync(
   new URL("../components/footer/footer.html", import.meta.url),
   "utf8"
 );
+const indexCss = readFileSync(
+  new URL("../styles/index.css", import.meta.url),
+  "utf8"
+);
 
 test("document shell has final metadata, landmarks, scripts, and skip link", () => {
   assert.match(index, /<title>Isaac Mark — Web Developer<\/title>/);
@@ -20,7 +24,7 @@ test("document shell has final metadata, landmarks, scripts, and skip link", () 
   assert.match(index, /<meta\s+property="og:image"[^>]*>/);
 
   assert.match(index, /<a\s+class="skip-link"\s+href="#main">/);
-  assert.match(index, /<main id="main">/);
+  assert.match(index, /<main id="main" tabindex="-1">/);
   assert.match(index, /<footer id="footer-place">/);
 
   assert.match(index, /<script\s+type="module"\s+src="\/?(\.\/)?js\/index\.js"><\/script>/);
@@ -43,4 +47,8 @@ test("footer fragment has landmark, socials, year, and back-to-top", () => {
   assert.match(footer, /id="footer-socials"/);
   assert.match(footer, /id="back-to-top"/);
   assert.match(footer, /<footer[\s\S]*>/);
+});
+
+test("body does not reserve space above the sticky header", () => {
+  assert.doesNotMatch(indexCss, /(^|\n)body\s*\{[^}]*padding-top/);
 });

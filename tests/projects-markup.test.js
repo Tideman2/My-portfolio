@@ -58,3 +58,8 @@ test("project markup and logic drop the old flip card and onclick handlers", () 
   assert.doesNotMatch(projects + template, /class="card"/);
   assert.doesNotMatch(projects + template, /flipped/);
 });
+
+test("read more visibility follows goal length, not detached measurements", () => {
+  assert.match(projectsJs, /needsReadMore/);
+  assert.doesNotMatch(projectsJs, /scrollHeight/);
+});
