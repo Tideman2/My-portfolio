@@ -1,27 +1,43 @@
-<section id="about">
-  <div class="headers">
-    <h2>About me</h2>
-    <p>Get to know me a little better</p>
-  </div>
-  <div class="my-img-con">
-    <img src="assets/retroDev.png" alt="pic-of-coder" />
+<section id="about" aria-labelledby="about-heading">
+  <div class="about-heading">
+    <p class="eyebrow">// 02 — about</p>
+    <h2 id="about-heading">About me</h2>
+    <p class="section-subtitle">
+      Get to know the person behind the terminal.
+    </p>
   </div>
 
-  <div id="about-texts">
-    <p>
-      I'm a self-taught frontend developer with over 2 years of hands-on
-      experience building responsive web apps using HTML, CSS, and JavaScript. I
-      enjoy learning by doing — solving algorithmic problems and building
-      real-world projects to deepen my understanding. Along the way, I’ve also
-      worked with modern tools like React, Tailwind CSS, and Material UI (MUI)
-      to create dynamic, user-friendly interfaces. Also build rest APIs servers
-      using python and sql
-    </p>
-    <p>
-      This portfolio was built without frameworks to sharpen my core
-      understanding of the web. I focused on clean structure, accessibility, and
-      modularity. Every challenge — whether design-related or algorithmic — is
-      an opportunity to think deeper and grow as a developer.
-    </p>
+  <div class="about-visual">
+    <div class="about-portrait-frame">
+      <img
+        id="about-portrait"
+        src="assets/retroDev.png"
+        alt="Illustration of Isaac Mark as a retro developer"
+        width="480"
+        height="480"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="about-copy">
+    <div id="about-bio">
+      <p>
+        Self-taught frontend developer building responsive, accessible web apps
+        with HTML, CSS, JavaScript, React, and Python.
+      </p>
+    </div>
+    <div
+      id="about-meta"
+      class="about-meta"
+      role="list"
+      aria-label="Profile details"
+      hidden
+    ></div>
+    <ul class="about-tags" aria-label="Areas of focus">
+      <li>Frontend</li>
+      <li>REST APIs</li>
+      <li>Accessibility</li>
+    </ul>
   </div>
 </section>
