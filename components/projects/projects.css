@@ -1,139 +1,316 @@
-/* Downward are rules for the cards that will contain the fetched projects */
-
 #projects-section {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
-#card-box {
+.projects-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.projects-heading h2 {
+  position: relative;
+  margin: 0;
+  padding-bottom: 0.4rem;
+  color: var(--text);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.projects-heading h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3.5rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+}
+
+#project-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: var(--space-2);
 }
 
-.stack {
+.project-filter {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface-raised);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.project-filter:hover,
+.project-filter[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.project-filter[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+#project-status {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.5rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
 }
 
-.stack li {
-  list-style: none;
-  padding: 10px;
-  border: 1px solid var(--text-color);
-  border-radius: 30%;
-  font-weight: bolder;
+#project-status[hidden] {
+  display: none;
 }
 
-.title {
-  font-size: clamp(1.5rem, 10vw, 1.6rem);
+#project-retry {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  background: var(--surface-raised);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
 }
 
-.about-project {
-  font-size: clamp(1rem, 10vw, 1.1rem);
-  color: var(--text-color);
+#project-retry:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
 }
 
-.card {
-  width: 300px;
-  perspective: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
+#project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-4);
 }
 
-.card img {
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.project-card.skeleton {
+  border-style: dashed;
+}
+
+.project-card .skeleton-text {
+  display: block;
+  height: 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+}
+
+.project-image {
+  position: relative;
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  overflow: hidden;
+  border-radius: calc(var(--radius-card) - 8px);
+  background: var(--surface);
 }
 
-.card-inner {
+.project-image img {
   width: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
-/* This only applies hover tilt IF the card is not flipped */
-.card:not(.flipped):hover .card-inner {
-  transform: rotateY(25deg);
+.project-image img[hidden] {
+  display: none;
 }
 
-/* Flipped state */
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  backface-visibility: hidden;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.card-front {
-  width: 100%;
-  background: var(--card-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.card-back {
-  background: linear-gradient(
-    to right,
-    var(--accent) 0%,
-    var(--text-color) 20%,
-    var(--text-color) 80%,
-    var(--accent) 100%
-  );
+.project-image-placeholder {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: var(--accent);
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-3);
+  border: 1px dashed var(--border);
+  border-radius: inherit;
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.project-image-placeholder[hidden] {
+  display: none;
+}
+
+.project-body {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  align-items: center;
-  justify-content: center;
-  transform: rotateY(180deg);
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+  padding-top: var(--space-3);
+}
+
+.project-group-badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-title {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.project-goal {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.project-goal.expanded {
+  max-height: none;
+  overflow: visible;
+}
+
+.project-read-more {
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: underline;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-stack li {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
 }
 
 .view-code,
 .live-demo {
-  padding: 15px;
-  border-radius: 20%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-button);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   text-decoration: none;
-  background-color: var(--card-bg);
-  font-size: clamp(1rem, 10vw, 1rem);
 }
 
-/* see more btn styling */
+.view-code {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.live-demo {
+  background: var(--surface-raised);
+  color: var(--accent-strong);
+  border: 1px solid var(--border);
+}
+
+.view-code:hover,
+.live-demo:hover {
+  color: var(--accent);
+}
+
 #see-more-btn {
   display: flex;
   justify-content: center;
 }
 
+#see-more-btn[hidden] {
+  display: none;
+}
+
 #see-more-btn > button {
-  background-color: var(--accent);
-  border: none;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  min-height: 2.75rem;
+  padding: 0.75rem 1.1rem;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--accent);
   color: #ffffff;
-  font-weight: 600;
-  padding: 0.75rem;
-  border-radius: 8px;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
 }
 
 #see-more-btn > button:hover {
-  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card:hover {
+    transition: none;
+    transform: none;
+  }
 }

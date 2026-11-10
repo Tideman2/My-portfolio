@@ -1,20 +1,21 @@
-<template>
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-front">
-        <img src="../../assets/retroDev.png" alt="" />
-        <h3 class="title"></h3>
-        <p class="about-project"></p>
-        <ul class="stack"></ul>
-      </div>
-      <div class="card-back">
-        <a class="view-code" target="_blank" rel="noopener noreferrer"
-          >View-code</a
-        >
-        <a class="live-demo" target="_blank" rel="noopener noreferrer"
-          >View-live</a
-        >
+<template id="project-card-template">
+  <article class="project-card">
+    <div class="project-image">
+      <img class="project-image-media" src="" alt="" loading="lazy" />
+      <div class="project-image-placeholder" hidden>
+        <span>No preview yet</span>
       </div>
     </div>
-  </div>
+    <div class="project-body">
+      <span class="project-group-badge"></span>
+      <h4 class="project-title"></h4>
+      <p class="project-goal"></p>
+      <button type="button" class="project-read-more" hidden>Read more</button>
+      <ul class="project-stack"></ul>
+      <div class="project-links">
+        <a class="view-code" href="" target="_blank" rel="noopener noreferrer">Code</a>
+        <a class="live-demo" href="" target="_blank" rel="noopener noreferrer">Live demo</a>
+      </div>
+    </div>
+  </article>
 </template>
