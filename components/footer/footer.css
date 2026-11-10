@@ -1,0 +1,84 @@
+.site-footer {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: var(--space-6) var(--gutter) var(--space-5);
+}
+
+.site-footer .footer-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.site-footer .footer-name {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.site-footer #footer-year {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.site-footer .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.site-footer .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  background: var(--surface-raised);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.site-footer .social-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.site-footer .footer-note {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.site-footer .back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.1rem;
+  border: 0;
+  border-radius: var(--radius-button);
+  background: var(--accent);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-footer .back-to-top:hover {
+  color: #ffffff;
+}
