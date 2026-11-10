@@ -1,11 +1,16 @@
-<template>
-  <div class="skills-template-content">
-    <div class="tech-and-percentage">
-      <p class="tech-stack"></p>
-      <button class="percentage"></button>
+<template id="skill-card-template">
+  <article class="skill-card">
+    <div class="skill-card-top">
+      <h4 class="skill-name"></h4>
+      <div class="skill-meter" aria-hidden="true">
+        <span class="skill-segment"></span>
+        <span class="skill-segment"></span>
+        <span class="skill-segment"></span>
+        <span class="skill-segment"></span>
+        <span class="skill-segment"></span>
+      </div>
     </div>
-    <div class="bar-outer">
-      <div class="bar-inner"></div>
-    </div>
-  </div>
+    <p class="skill-description"></p>
+    <span class="sr-only skill-level"></span>
+  </article>
 </template>

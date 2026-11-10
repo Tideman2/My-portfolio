@@ -1,43 +1,37 @@
-<section id="skills-sec">
-  <div class="headers">
-    <h2>My skills</h2>
-    <p>Technologies i work with</p>
+<section id="skills" aria-labelledby="skills-heading">
+  <div class="skills-heading">
+    <p class="eyebrow">// 03 — skills</p>
+    <h2 id="skills-heading">Skills &amp; tools</h2>
+    <p class="section-subtitle">
+      A snapshot of what I build with and how deep I’ve gone.
+    </p>
   </div>
-  <div id="skills">
-    <div id="tech-space">
-      <h4>Technical skills</h4>
-      <div id="tech-skills">
-        <div id="container-one"></div>
-        <div id="container-two"></div>
-       <div id="skills-modal" class="skills-modal">
-       <div id="skills-modal-content">
-        <span id="close-skills-modal-btn" class="close-skills-modal-btn">&times;</span>
-        <h3 id="skills-modal-title"></h2>
-        <p id="skills-modal-body"></p>
-      </div>
-    </div>
-      </div>
-    </div>
 
-    <div id="Professional-spoace">
-      <h4>Professional skills</h4>
-      <p>
-        Beyond technical abilities, I bring a range of professional skills to my
-        work:
-      </p>
-      <ul>
-        <li>Problem Solving & Critical Thinking</li>
-        <li>Communication & Collaboration</li>
-        <li>Adaptability & Quick Learning</li>
-        <li>Attention to Detail</li>
-        <li>User Experience Design/responsive web apps</li>
-      </ul>
-      <p>
-        I am committed to continuous learning and staying updated with the
-        latest web development trends and best practices.
-      </p>
+  <div class="skill-group" aria-labelledby="technical-heading">
+    <div class="skill-group-heading">
+      <h3 id="technical-heading">Technical</h3>
+      <p>Languages, frameworks, and tools I use to ship.</p>
     </div>
+    <p id="technical-status" class="skill-status" role="status">
+      Loading technical skills…
+    </p>
+    <div id="technical-skills" class="skill-grid" aria-busy="true"></div>
+    <p id="technical-empty" class="skill-empty" hidden>
+      No technical skills to show right now.
+    </p>
+  </div>
+
+  <div class="skill-group" aria-labelledby="professional-heading">
+    <div class="skill-group-heading">
+      <h3 id="professional-heading">Professional</h3>
+      <p>The habits and strengths that shape how I work.</p>
+    </div>
+    <p id="professional-status" class="skill-status" role="status">
+      Loading professional skills…
+    </p>
+    <div id="professional-skills" class="skill-grid" aria-busy="true"></div>
+    <p id="professional-empty" class="skill-empty" hidden>
+      No professional skills to show right now.
+    </p>
   </div>
 </section>
-
-<!-- <div class="mee"></div> -->
